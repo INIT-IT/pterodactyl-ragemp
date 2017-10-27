@@ -23,7 +23,7 @@ if [ -f "/home/container/server" ]; then
             "gamemode" : "freeroam",
             "streamdistance" : 500.0,
             "announce" : false,
-            "port": '+${SERVER_PORT}+'
+            "port": ${SERVER_PORT}
     }' > /home/container/conf.json
     set -e
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
