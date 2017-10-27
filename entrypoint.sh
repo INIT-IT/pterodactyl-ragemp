@@ -3,6 +3,7 @@
 cd /home/container
 if [ -f "/home/container/server" ]; then
     echo "To update ragemp. Please delete ragemp."
+    chmod +x /home/container/server
     MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     echo ":/home/container$ ./server"
     set -e
@@ -11,6 +12,7 @@ if [ -f "/home/container/server" ]; then
   else 
     echo "Updating mtasa. Please do not kill this process."
     wget http://static-cdn.gamenode.pro/installation/ragemp/latest.php -P /home/container -O server
+    chmod +x /home/container/server
     echo "Done updating ragemp. Starting..";
     MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     echo ":/home/container$ ${MODIFIED_STARTUP}"
