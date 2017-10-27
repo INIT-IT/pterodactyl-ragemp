@@ -6,6 +6,15 @@ if [ -f "/home/container/server" ]; then
     chmod +x /home/container/server
     MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     echo ":/home/container$ ./server"
+    touch /home/container/conf.json
+    echo '{
+            "maxplayers" : 100,
+            "name" : "RAGE:MP Unofficial server - New Server, Change my name - Powered by GameNode.Pro",
+            "gamemode" : "freeroam",
+            "streamdistance" : 500.0,
+            "announce" : false,
+            "port": '+${SERVER_PORT}+'
+    }' > /home/container/conf.json
     set -e
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
     exec ${MODIFIED_STARTUP} -n -t -u
