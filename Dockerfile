@@ -4,7 +4,7 @@ MAINTAINER Curt H., <curt@curtcreation.net>
 
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y lib32gcc1 unzip curl libreadline5 libncursesw5 lib32ncursesw5 lib32stdc++6 wget && \
+    apt install -y lib32gcc1 unzip curl libreadline5 libncursesw5 lib32ncursesw5 lib32stdc++6 wget libstdc++6 && \
     useradd -d /home/container -m container
 
 USER container
